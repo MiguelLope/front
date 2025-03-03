@@ -12,7 +12,8 @@ const Login = () => {
     try {
       const csrfResponse = await axios.get('https://back-production-47e5.up.railway.app/api/get-csrf-token');
       const csrfToken = csrfResponse.data.csrf_token;
-
+      console.log(csrfToken);
+      
       // Paso 2: Realizar la solicitud POST de login con el token CSRF
       const response = await axios.post(
           'https://back-production-47e5.up.railway.app/api/login', 
