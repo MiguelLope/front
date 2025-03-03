@@ -35,7 +35,7 @@ const SpecialistView = () => {
   const [message, setMessage] = useState<{ type: "success" | "error"; text: string } | null>(null);
   const [diasTrabajo, setDiasTrabajo] = useState<string[]>([]);
 
-  const API_URL = "http://127.0.0.1:8000/api";
+  const API_URL = "https://back-production-47e5.up.railway.app/api";
 
   // Manejo de errores para solicitudes HTTP
   const handleError = (error: any, defaultMessage: string) => {

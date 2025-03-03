@@ -42,7 +42,7 @@ const Record = () => {
   useEffect(() => {
     if (user.tipo_usuario === "paciente") {
       axios
-        .get(`http://127.0.0.1:8000/api/historial/paciente/${user.id_usuario}`)
+        .get(`https://back-production-47e5.up.railway.app/api/historial/paciente/${user.id_usuario}`)
         .then((response) => {
           setHistoriales(response.data);
           setLoading(false);
@@ -54,7 +54,7 @@ const Record = () => {
     }
     if (user.tipo_usuario === "especialista") {
       axios
-        .get(`http://127.0.0.1:8000/api/historial/especialista/${user.id_usuario}`)
+        .get(`https://back-production-47e5.up.railway.app/api/historial/especialista/${user.id_usuario}`)
         .then((response) => {
           setHistoriales(response.data);
           setLoading(false);
@@ -67,7 +67,7 @@ const Record = () => {
 
     if (user.tipo_usuario === "especialista") {
       axios
-        .get(`http://127.0.0.1:8000/api/historial/especialista/${user.id_usuario}`)
+        .get(`https://back-production-47e5.up.railway.app/api/historial/especialista/${user.id_usuario}`)
         .then((response) => {
           setHistoriales(response.data);
           setLoading(false);
@@ -81,7 +81,7 @@ const Record = () => {
 
     if (user.tipo_usuario === "admin") {
       axios
-        .get(`http://127.0.0.1:8000/api/historial/completo/${0}`)
+        .get(`https://back-production-47e5.up.railway.app/api/historial/completo/${0}`)
         .then((response) => {
           console.log(response);
           console.log(response);

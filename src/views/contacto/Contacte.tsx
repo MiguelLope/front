@@ -13,7 +13,7 @@ export const ContactoUsuario = () => {
 
   useEffect(() => {
     axios
-      .get("http://127.0.0.1:8000/api/contacto")
+      .get("https://back-production-47e5.up.railway.app/api/contacto")
       .then((response) => {
         if (response.data) {
           setContacto(response.data);
@@ -61,7 +61,7 @@ export const ContactoAdmin = () => {
 
   useEffect(() => {
     axios
-      .get("http://127.0.0.1:8000/api/contacto")
+      .get("https://back-production-47e5.up.railway.app/api/contacto")
       .then((response) => {
         if (response.data) {
           setContacto(response.data);
@@ -79,7 +79,7 @@ export const ContactoAdmin = () => {
   const handleSubmit = (e: any) => {
     e.preventDefault();
     axios
-      .post("http://127.0.0.1:8000/api/contacto", contacto)
+      .post("https://back-production-47e5.up.railway.app/api/contacto", contacto)
       .then(() => setMensaje("Contacto actualizado correctamente"))
       .catch((error) => console.error("Error al actualizar contacto", error));
   };

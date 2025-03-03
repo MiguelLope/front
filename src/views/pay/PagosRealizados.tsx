@@ -41,7 +41,7 @@ const PagosRealizados = () => {
 
   const fetchPagos = async () => {
     try {
-      const response = await axios.get("http://127.0.0.1:8000/api/pagos");
+      const response = await axios.get("https://back-production-47e5.up.railway.app/api/pagos");
       setPagos(response.data);
       console.log(response.data);
 
@@ -57,7 +57,7 @@ const PagosRealizados = () => {
 
   const handleCompletePayment = async (id_pago: number) => {
     try {
-      const response = await axios.put(`http://127.0.0.1:8000/api/pagos/${id_pago}/completar`);
+      const response = await axios.put(`https://back-production-47e5.up.railway.app/api/pagos/${id_pago}/completar`);
       console.log(response.data);
       fetchPagos(); // Recargar la lista después de completar el pago
     } catch (error) {

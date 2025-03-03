@@ -15,7 +15,7 @@ const EditConsultorioForm = ({ id_consultorio, showModal, onClose, onSave }: Edi
 
     useEffect(() => {
         if (id_consultorio && showModal) {
-            axios.get(`http://127.0.0.1:8000/api/consultorios/${id_consultorio}`)
+            axios.get(`https://back-production-47e5.up.railway.app/api/consultorios/${id_consultorio}`)
                 .then((response) => {
                     setConsultorio(response.data);
                 })
@@ -43,7 +43,7 @@ const EditConsultorioForm = ({ id_consultorio, showModal, onClose, onSave }: Edi
         setIsSubmitting(true);
         setError(null);
 
-        axios.put(`http://127.0.0.1:8000/api/consultorios/${id_consultorio}`, consultorio)
+        axios.put(`https://back-production-47e5.up.railway.app/api/consultorios/${id_consultorio}`, consultorio)
             .then((response) => {
                 onSave(response.data);
                 onClose();

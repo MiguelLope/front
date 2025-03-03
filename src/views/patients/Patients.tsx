@@ -44,7 +44,7 @@ const Paciente = () => {
 
   useEffect(() => {
     axios
-      .get('http://127.0.0.1:8000/api/pacientes')
+      .get('https://back-production-47e5.up.railway.app/api/pacientes')
       .then((response) => {
         setPacientes(response.data);
       })
@@ -58,7 +58,7 @@ const Paciente = () => {
 
     if (formData.id_usuario) {
       axios
-        .put(`http://127.0.0.1:8000/api/usuarios/${formData.id_usuario}`, formData)
+        .put(`https://back-production-47e5.up.railway.app/api/usuarios/${formData.id_usuario}`, formData)
         .then((response) => {
           setPacientes((prev) =>
             prev.map((paciente) =>
@@ -75,7 +75,7 @@ const Paciente = () => {
         });
     } else {
       axios
-        .post('http://127.0.0.1:8000/api/usuarios', formData)
+        .post('https://back-production-47e5.up.railway.app/api/usuarios', formData)
         .then((response) => {
           setPacientes((prev) => [...prev, response.data]);
           setSuccessMessage('Paciente agregado con éxito.');
@@ -110,7 +110,7 @@ const Paciente = () => {
   const handleConfirmDelete = () => {
     if (selectedPaciente) {
       axios
-        .delete(`http://127.0.0.1:8000/api/usuarios/${selectedPaciente.id_usuario}`)
+        .delete(`https://back-production-47e5.up.railway.app/api/usuarios/${selectedPaciente.id_usuario}`)
         .then(() => {
           setPacientes((prev) =>
             prev.filter((paciente) => paciente.id_usuario !== selectedPaciente.id_usuario)

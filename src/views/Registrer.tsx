@@ -21,7 +21,7 @@ const Register = () => {
   const handleSubmit = async (e:any) => {
     e.preventDefault();
     try {
-      await axios.post('http://localhost:8000/api/usuarios', formData);
+      await axios.post('https://back-production-47e5.up.railway.app/api/usuarios', formData);
       setSuccessDialogOpen(true);
       window.location.href = "/login";
 

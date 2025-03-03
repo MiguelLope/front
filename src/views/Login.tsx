@@ -10,7 +10,7 @@ const Login = () => {
   const handleLogin = async (e:any) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:8000/api/login', {
+      const response = await axios.post('https://back-production-47e5.up.railway.app/api/login', {
         email,
         password,
       });

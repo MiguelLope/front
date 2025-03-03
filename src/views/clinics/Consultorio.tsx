@@ -23,7 +23,7 @@ const ConsultorioPage = () => {
 
     useEffect(() => {
         axios
-            .get('http://127.0.0.1:8000/api/consultorios')
+            .get('https://back-production-47e5.up.railway.app/api/consultorios')
             .then((response) => {
                 setConsultorios(response.data);
             })
@@ -60,7 +60,7 @@ const ConsultorioPage = () => {
     const confirmDelete = () => {
         if (consultorioToDelete !== null) {
             axios
-                .delete(`http://127.0.0.1:8000/api/consultorios/${consultorioToDelete}`)
+                .delete(`https://back-production-47e5.up.railway.app/api/consultorios/${consultorioToDelete}`)
                 .then(() => {
                     setConsultorios(
                         consultorios.filter((consultorio) => consultorio.id_consultorio !== consultorioToDelete)

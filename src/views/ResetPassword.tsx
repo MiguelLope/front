@@ -22,7 +22,7 @@ const ResetPassword = () => {
     }
 
     try {
-      const response = await axios.post('http://localhost:8000/api/verificar-codigo', {
+      const response = await axios.post('https://back-production-47e5.up.railway.app/api/verificar-codigo', {
         email,
         codigo,
         nueva_contraseña: password,

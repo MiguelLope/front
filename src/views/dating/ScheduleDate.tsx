@@ -42,7 +42,7 @@ const ScheduleDate = () => {
 
 
 
-  const API_URL = "http://127.0.0.1:8000/api";
+  const API_URL = "https://back-production-47e5.up.railway.app/api";
 
   const diasPermitidos = ["Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado", "Domingo"];
   const mapDiasTrabajo = (dias: string[]) => {

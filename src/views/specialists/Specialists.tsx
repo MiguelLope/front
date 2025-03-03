@@ -50,7 +50,7 @@ const Especialista = () => {
 
   useEffect(() => {
     axios
-      .get('http://127.0.0.1:8000/api/especialistas')
+      .get('https://back-production-47e5.up.railway.app/api/especialistas')
       .then((response) => {
         setEspecialistas(response.data);
         console.log(response.data);
@@ -66,7 +66,7 @@ const Especialista = () => {
 
     if (formData.id_usuario) {
       axios
-        .put(`http://127.0.0.1:8000/api/usuarios/${formData.id_usuario}`, formData)
+        .put(`https://back-production-47e5.up.railway.app/api/usuarios/${formData.id_usuario}`, formData)
         .then((response) => {
           setEspecialistas((prev) =>
             prev.map((especialista) =>
@@ -81,7 +81,7 @@ const Especialista = () => {
         });
     } else {
       axios
-        .post('http://127.0.0.1:8000/api/usuarios', formData)
+        .post('https://back-production-47e5.up.railway.app/api/usuarios', formData)
         .then((response) => {
           setEspecialistas((prev) => [...prev, response.data]);
           console.log(response.data);
@@ -119,7 +119,7 @@ const Especialista = () => {
   const handleConfirmDelete = () => {
     if (selectedEspecialista) {
       axios
-        .delete(`http://127.0.0.1:8000/api/usuarios/${selectedEspecialista.id_usuario}`)
+        .delete(`https://back-production-47e5.up.railway.app/api/usuarios/${selectedEspecialista.id_usuario}`)
         .then(() => {
           setEspecialistas((prev) =>
             prev.filter((especialista) => especialista.id_usuario !== selectedEspecialista.id_usuario)

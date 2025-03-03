@@ -25,7 +25,7 @@ const Dating = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  const API_URL = "http://127.0.0.1:8000/api";
+  const API_URL = "https://back-production-47e5.up.railway.app/api";
   const navigate = useNavigate();
 
   useEffect(() => {

@@ -11,7 +11,7 @@ const CitaDetalle = () => {
   useEffect(() => {
     const fetchCita = async () => {
       try {
-        const response = await axios.get(`http://127.0.0.1:8000/api/citas/${id}`);
+        const response = await axios.get(`https://back-production-47e5.up.railway.app/api/citas/${id}`);
         setCita(response.data.cita);
 
         

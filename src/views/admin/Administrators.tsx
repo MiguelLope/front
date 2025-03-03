@@ -42,7 +42,7 @@ const Administrators = () => {
 
   useEffect(() => {
     axios
-      .get('http://127.0.0.1:8000/api/administradores')
+      .get('https://back-production-47e5.up.railway.app/api/administradores')
       .then((response) => {
         setAdministradores(response.data);
       })
@@ -56,7 +56,7 @@ const Administrators = () => {
 
     if (formData.id_usuario) {
       axios
-        .put(`http://127.0.0.1:8000/api/usuarios/${formData.id_usuario}`, formData)
+        .put(`https://back-production-47e5.up.railway.app/api/usuarios/${formData.id_usuario}`, formData)
         .then((response) => {
           setAdministradores((prev) =>
             prev.map((admin) =>
@@ -72,7 +72,7 @@ const Administrators = () => {
         });
     } else {
       axios
-        .post('http://127.0.0.1:8000/api/usuarios', formData)
+        .post('https://back-production-47e5.up.railway.app/api/usuarios', formData)
         .then((response) => {
           setAdministradores((prev) => [...prev, response.data]);
           setSuccessMessage('Administrador agregado con éxito.');
@@ -107,7 +107,7 @@ const Administrators = () => {
   const handleConfirmDelete = () => {
     if (selectedAdmin) {
       axios
-        .delete(`http://127.0.0.1:8000/api/usuarios/${selectedAdmin.id_usuario}`)
+        .delete(`https://back-production-47e5.up.railway.app/api/usuarios/${selectedAdmin.id_usuario}`)
         .then(() => {
           setAdministradores((prev) =>
             prev.filter((admin) => admin.id_usuario !== selectedAdmin.id_usuario)

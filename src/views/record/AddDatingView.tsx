@@ -35,7 +35,7 @@ const CitaDetalle = () => {
 
   useEffect(() => {
     axios
-      .get(`http://127.0.0.1:8000/api/citas/especialista/${id_cita}`)
+      .get(`https://back-production-47e5.up.railway.app/api/citas/especialista/${id_cita}`)
       .then((response) => {setCita(response.data)
       })
       .catch((error) => console.error("Error cargando la cita:", error));
@@ -46,7 +46,7 @@ const CitaDetalle = () => {
     if (!cita) return;
 
     axios
-      .post("http://127.0.0.1:8000/api/historial", {
+      .post("https://back-production-47e5.up.railway.app/api/historial", {
         id_usuario: cita.paciente.id_usuario,
         id_especialista: cita.especialista.id_especialista,
         id_cita: cita.id_cita,

@@ -32,7 +32,7 @@ const AddConsultorioForm = ({ showModal, onClose, onAdd }: AddConsultorioFormPro
         setIsSubmitting(true);
         setError(null);
 
-        axios.post('http://127.0.0.1:8000/api/consultorios', newConsultorio)
+        axios.post('https://back-production-47e5.up.railway.app/api/consultorios', newConsultorio)
             .then((response) => {
                 // La respuesta del servidor debe incluir el id_consultorio
                 const savedConsultorio = response.data;

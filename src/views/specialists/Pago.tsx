@@ -20,7 +20,7 @@ const Pago = () => {
     e.preventDefault();
 
     try {
-      const response = await axios.post("http://127.0.0.1:8000/api/pagos", formData, {
+      const response = await axios.post("https://back-production-47e5.up.railway.app/api/pagos", formData, {
         headers: {
           "Content-Type": "application/json",
           "Accept": "application/json",

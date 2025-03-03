@@ -13,7 +13,7 @@ const RequestReset = () => {
   const handleRequest = async (e:any) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:8000/api/enviar-codigo', { email });
+      const response = await axios.post('https://back-production-47e5.up.railway.app/api/enviar-codigo', { email });
       setMessage(response.data.message);
 
       setTimeout(() => {

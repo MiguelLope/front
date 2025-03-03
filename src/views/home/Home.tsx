@@ -53,19 +53,19 @@ const Home = () => {
   useEffect(() => {
     if (user?.tipo_usuario === "especialista") {
       axios
-        .get(`http://127.0.0.1:8000/api/especialista/citas/${user.id_usuario}`)
+        .get(`https://back-production-47e5.up.railway.app/api/especialista/citas/${user.id_usuario}`)
         .then((response) => setCitas(response.data))
         .catch((error) => console.error("Error cargando citas:", error));
     }
     if (user?.tipo_usuario === "admin") {
       axios
-        .get(`http://127.0.0.1:8000/api/especialista/citas`)
+        .get(`https://back-production-47e5.up.railway.app/api/especialista/citas`)
         .then((response) => setCitas(response.data))
         .catch((error) => console.error("Error cargando citas:", error));
     }
     if (user?.tipo_usuario === "paciente") {
       axios
-        .get(`http://127.0.0.1:8000/api/paciente/citas/${user.id_usuario}`)
+        .get(`https://back-production-47e5.up.railway.app/api/paciente/citas/${user.id_usuario}`)
         .then((response) => setCitas(response.data))
         .catch((error) => console.error("Error cargando citas:", error));
     }
@@ -80,7 +80,7 @@ const Home = () => {
 
   const actualizarEstadoCita = (idCita: number, nuevoEstado: string) => {
     axios
-      .put(`http://127.0.0.1:8000/api/citas/${idCita}`, { estado: nuevoEstado })
+      .put(`https://back-production-47e5.up.railway.app/api/citas/${idCita}`, { estado: nuevoEstado })
       .then(() => {
         setCitas((prevCitas) =>
           prevCitas.map((cita) =>
