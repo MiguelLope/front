@@ -10,10 +10,20 @@ const Login = () => {
   const handleLogin = async (e:any) => {
     e.preventDefault();
     try {
-      const response = await axios.post('https://back-production-47e5.up.railway.app/api/login', {
-        email,
-        password,
-      });
+      const csrfResponse = await axios.get('https://back-production-47e5.up.railway.app/api/get-csrf-token');
+      const csrfToken = csrfResponse.data.csrf_token;
+
+      // Paso 2: Realizar la solicitud POST de login con el token CSRF
+      const response = await axios.post(
+          'https://back-production-47e5.up.railway.app/api/login', 
+          { email, password },
+          {
+              headers: {
+                  'X-CSRF-TOKEN': csrfToken // Incluir el token CSRF en los encabezados
+              }
+          }
+      );
+
       // Guardar el token o los datos de la sesión
       localStorage.setItem('usr', JSON.stringify(response.data.usuario));
       window.location.href = "/";
