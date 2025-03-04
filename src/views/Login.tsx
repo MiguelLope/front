@@ -10,7 +10,7 @@ const Login = () => {
   const handleLogin = async (e:any) => {
     e.preventDefault();
     try {
-      await axios.get('https://back-production-47e5.up.railway.app/sanctum/csrf-cookie');
+      await axios.get('https://back-production-47e5.up.railway.app/api/get-csrf-token');
       // Paso 2: Realizar la solicitud POST de login con el token CSRF
       const response = await axios.post(
           'https://back-production-47e5.up.railway.app/api/login', 
