@@ -13,7 +13,7 @@ export const ContactoUsuario = () => {
 
   useEffect(() => {
     axios
-      .get("https://back-production-47e5.up.railway.app/api/contacto")
+      .get("https://back-production-3ec7.up.railway.app/api/contacto")
       .then((response) => {
         if (response.data) {
           setContacto(response.data);
