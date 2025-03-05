@@ -12,16 +12,17 @@ const Login = () => {
     try {
 
 
-
-
       // Paso 2: Realizar la solicitud POST de login con el token CSRF
       const response = await axios.post(
         'https://back-production-3ec7.up.railway.app/api/login', 
         { email, password }, {
-            withCredentials: true,
-        }
+          withCredentials: true,
+          headers: {
+              'Content-Type': 'application/json',
+          }
+      }
     );
-
+    
       // Guardar el token o los datos de la sesión
       localStorage.setItem('usr', JSON.stringify(response.data.usuario));
       window.location.href = "/";
