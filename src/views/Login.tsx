@@ -7,30 +7,32 @@ const Login = () => {
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
 
-  const handleLogin = async (e: any) => {
+  const handleLogin = async (e:any) => {
     e.preventDefault();
     try {
-      // 1️⃣ Obtener el CSRF token y la cookie
-      await axios.get('https://back-production-47e5.up.railway.app/api/get-csrf-token', {
-        withCredentials: true, // Permite recibir cookies
-      });
-  
-      // 2️⃣ Realizar el login (Laravel tomará el CSRF desde la cookie)
+      const csrfResponse = await axios.get('https://back-production-47e5.up.railway.app/api/get-csrf-token');
+      const csrfToken = csrfResponse.data.csrf_token;
+      console.log(csrfToken);
+      
+      // Paso 2: Realizar la solicitud POST de login con el token CSRF
       const response = await axios.post(
-        'https://back-production-47e5.up.railway.app/api/login',
-        { email, password },
-        { withCredentials: true } // Enviar cookies en la solicitud
+          'https://back-production-47e5.up.railway.app/api/login', 
+          { email, password },
+          {
+              headers: {
+                  'X-CSRF-TOKEN': csrfToken // Incluir el token CSRF en los encabezados
+              }
+          }
       );
-  
-      // 3️⃣ Guardar el usuario y redirigir
+
+      // Guardar el token o los datos de la sesión
       localStorage.setItem('usr', JSON.stringify(response.data.usuario));
       window.location.href = "/";
-    } catch (err: any) {
-      console.log(err.response?.data?.message);
-      setError("" + err.response?.data?.message);
+    } catch (err:any) {
+      console.log(err.response.data.message);
+      setError("" + err.response.data.message);
     }
   };
-  
 
   const locagionHrefRegistrer = () => {
     window.location.href = "/registrer";
