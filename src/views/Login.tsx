@@ -11,10 +11,19 @@ const Login = () => {
     e.preventDefault();
     try {
 
+      // 1. Obtener el token CSRF
+await axios.get('https://laravel-api.up.railway.app/sanctum/csrf-cookie', {
+  withCredentials: true,
+});
+
+
+
       // Paso 2: Realizar la solicitud POST de login con el token CSRF
       const response = await axios.post(
           'https://back-production-47e5.up.railway.app/api/login', 
-          { email, password },
+          { email, password }, {
+            withCredentials: true,
+          }
       );
 
       // Guardar el token o los datos de la sesión
