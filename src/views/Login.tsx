@@ -1,36 +1,25 @@
 // Importa los paquetes necesarios
 import { useState } from 'react';
-import axios from 'axios';
+import api from './components/api';
 
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
 
-  const handleLogin = async (e:any) => {
+  const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      axios.defaults.withCredentials = true;
-
-      // Paso 2: Realizar la solicitud POST de login con el token CSRF
-      const response = await axios.post(
-        'https://back-production-3ec7.up.railway.app/api/login', 
-        { email, password }, {
-          headers: {
-              'Content-Type': 'application/json',
-          }
-      }
-    );
-    
-      // Guardar el token o los datos de la sesión
-      localStorage.setItem('usr', JSON.stringify(response.data.usuario));
-      window.location.href = "/";
-    } catch (err:any) {
-      console.log(err.response.data.message);
-      setError("" + err.response.data.message);
+        const response = await api.post('/api/login', { email, password });
+        
+        localStorage.setItem('usr', JSON.stringify(response.data.usuario));
+        window.location.href = "/";
+    } catch (err: any) {
+        const error = err.response?.data?.message || 'Error desconocido';
+        setError(error);
+        localStorage.removeItem('usr');
     }
-  };
-
+};
   const locagionHrefRegistrer = () => {
     window.location.href = "/registrer";
   }
