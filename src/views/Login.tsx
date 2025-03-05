@@ -10,13 +10,12 @@ const Login = () => {
   const handleLogin = async (e:any) => {
     e.preventDefault();
     try {
-
+      axios.defaults.withCredentials = true;
 
       // Paso 2: Realizar la solicitud POST de login con el token CSRF
       const response = await axios.post(
         'https://back-production-3ec7.up.railway.app/api/login', 
         { email, password }, {
-          withCredentials: true,
           headers: {
               'Content-Type': 'application/json',
           }
