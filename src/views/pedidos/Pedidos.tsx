@@ -31,7 +31,7 @@ const PedidosFarmacia = () => {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        axios.get("http://localhost:8000/api/pedidos")
+        axios.get("https://back-production-8a10.up.railway.app/api/pedidos")
             .then(res => setPedidos(res.data))
             .catch(err => console.error("Error cargando pedidos:", err))
             .finally(() => setLoading(false));
@@ -39,8 +39,8 @@ const PedidosFarmacia = () => {
 
     const marcarComoEntregado = async (idPedido: number) => {
         try {
-            await axios.put(`http://localhost:8000/api/pedidos/${idPedido}/entregar`);
-            const res = await axios.get("http://localhost:8000/api/pedidos");
+            await axios.put(`https://back-production-8a10.up.railway.app/api/pedidos/${idPedido}/entregar`);
+            const res = await axios.get("https://back-production-8a10.up.railway.app/api/pedidos");
             setPedidos(res.data);
         } catch (error) {
             console.error("Error al actualizar estado Entregado:", error);

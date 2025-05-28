@@ -61,9 +61,9 @@ const Consultas = () => {
   const [farmaciaId, setFarmaciaId] = useState<string>("local");
 
   const rutasPorFarmacia: Record<string, string> = {
-    local: "http://localhost:8000/api/medicamentos",
-    farmacia1: "http://localhost:8000/api/medicamentos/farmacia1",
-    farmacia2: "http://localhost:8000/api/medicamentos/farmacia2",
+    local: "https://back-production-8a10.up.railway.app/api/medicamentos",
+    farmacia1: "https://back-production-8a10.up.railway.app/api/medicamentos/farmacia1",
+    farmacia2: "https://back-production-8a10.up.railway.app/api/medicamentos/farmacia2",
   };
 
   useEffect(() => {

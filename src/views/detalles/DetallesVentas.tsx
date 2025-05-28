@@ -28,7 +28,7 @@ const VentasDetalles = () => {
 
   useEffect(() => {
     axios
-      .get('http://localhost:8000/api/detalleventas')
+      .get('https://back-production-8a10.up.railway.app/api/detalleventas')
       .then((response) => setVentas(response.data))
       .catch((error) => console.error('Error al obtener ventas:', error));
   }, []);

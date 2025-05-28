@@ -29,7 +29,7 @@ const Reabastecimiento = () => {
     useEffect(() => {
         const fetchMedicamentos = async () => {
             try {
-                const response = await axios.get("http://localhost:8000/api/medicamentos/con-existencia");
+                const response = await axios.get("https://back-production-8a10.up.railway.app/api/medicamentos/con-existencia");
                 setMedicamentos(response.data);
             } catch (error) {
                 setMensaje({
@@ -87,7 +87,7 @@ const Reabastecimiento = () => {
                 cantidad: item.cantidad
             }));
 
-            await axios.post("http://localhost:8000/api/bodega", { medicamentos: datos });
+            await axios.post("https://back-production-8a10.up.railway.app/api/bodega", { medicamentos: datos });
 
             setMensaje({ texto: "Solicitud enviada exitosamente.", tipo: "exito" });
             setCarrito([]);

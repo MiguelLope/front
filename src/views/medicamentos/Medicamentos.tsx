@@ -41,7 +41,7 @@ const Medicamentos = () => {
 
     const fetchMedicamentos = async () => {
         try {
-            const res = await axios.get("http://localhost:8000/api/medicamentos");
+            const res = await axios.get("https://back-production-8a10.up.railway.app/api/medicamentos");
             setMedicamentos(res.data);
             setFiltered(res.data);
         } catch (error) {
@@ -84,9 +84,9 @@ const Medicamentos = () => {
     const handleSubmit = async () => {
         try {
             if (form.id_medicamento) {
-                await axios.put(`http://localhost:8000/api/medicamentos/${form.id_medicamento}`, form);
+                await axios.put(`https://back-production-8a10.up.railway.app/api/medicamentos/${form.id_medicamento}`, form);
             } else {
-                await axios.post("http://localhost:8000/api/medicamentos", form);
+                await axios.post("https://back-production-8a10.up.railway.app/api/medicamentos", form);
             }
             fetchMedicamentos();
             handleClose();
@@ -97,7 +97,7 @@ const Medicamentos = () => {
 
     const handleDelete = async (id: number) => {
         try {
-            await axios.delete(`http://localhost:8000/api/medicamentos/${id}`);
+            await axios.delete(`https://back-production-8a10.up.railway.app/api/medicamentos/${id}`);
             fetchMedicamentos();
         } catch (error) {
             console.error("Error al eliminar:", error);

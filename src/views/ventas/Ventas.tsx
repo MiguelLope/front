@@ -28,7 +28,7 @@ const Ventas = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:8000/api/medicamentos")
+      .get("https://back-production-8a10.up.railway.app/api/medicamentos")
       .then((response) => setMedicamentos(response.data))
       .catch((error) =>
         console.error("Error al obtener medicamentos:", error)
@@ -121,7 +121,7 @@ const Ventas = () => {
     };
 
     try {
-      await axios.post("http://localhost:8000/api/ventas", venta);
+      await axios.post("https://back-production-8a10.up.railway.app/api/ventas", venta);
       setMensaje("Venta guardada con éxito");
       setProductos([]);
       setTotal(0);
